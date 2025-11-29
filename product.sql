@@ -14,8 +14,6 @@ CREATE TABLE barang
 
 DESCRIBE barang;
 
-
-
 SHOW CREATE TABLE barang;
 
 ALTER TABLE barang
