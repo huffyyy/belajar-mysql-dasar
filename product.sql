@@ -208,3 +208,6 @@ SELECT *
 FROM products
 WHERE name LIKE '%Bakso%';
 
+SELECT * FROM products WHERE description IS NULL;
+
+SELECT * FROM products WHERE description IS NOT NULL;
