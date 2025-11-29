@@ -208,6 +208,18 @@ SELECT *
 FROM products
 WHERE name LIKE '%Bakso%';
 
-SELECT * FROM products WHERE description IS NULL;
+SELECT *
+FROM products
+WHERE description IS NULL;
 
-SELECT * FROM products WHERE description IS NOT NULL;
+SELECT *
+FROM products
+WHERE description IS NOT NULL;
+
+SELECT *
+FROM products
+WHERE price BETWEEN 10000 AND 20000;
+
+SELECT *
+FROM products
+WHERE price NOT BETWEEN 10000 AND 20000;
