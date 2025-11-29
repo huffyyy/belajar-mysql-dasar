@@ -1,5 +1,3 @@
-SHOW ENGINES;
-
 SHOW TABLES;
 
 USE belajar_mysql;
