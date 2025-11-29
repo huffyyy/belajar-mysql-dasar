@@ -223,3 +223,8 @@ WHERE price BETWEEN 10000 AND 20000;
 SELECT *
 FROM products
 WHERE price NOT BETWEEN 10000 AND 20000;
+
+SELECT *
+FROM products
+WHERE category IN ('Makanan', 'Minuman');
+
