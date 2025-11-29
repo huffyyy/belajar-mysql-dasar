@@ -228,3 +228,5 @@ SELECT *
 FROM products
 WHERE category IN ('Makanan', 'Minuman');
 
+SELECT * FROM products
+WHERE category NOT IN ('Makanan', 'Minuman');
