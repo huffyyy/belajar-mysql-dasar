@@ -250,8 +250,42 @@ ORDER BY id desc;
 SELECT *
 FROM products;
 
-SELECT * FROM products ORDER BY id LIMIT 5;
+SELECT *
+FROM products
+ORDER BY id
+LIMIT 5;
 
-SELECT * FROM products WHERE price > 0 ORDER BY id LIMIT 5, 5;
+SELECT *
+FROM products
+WHERE price > 0
+ORDER BY id
+LIMIT 5, 5;
 
-SELECT DISTINCT category FROM products ;
+SELECT DISTINCT category
+FROM products;
+
+SELECT 10 + 10 AS hasil;
+
+SELECT id, price DIV 1000 AS 'Price in K'
+FROM products;
+
+SELECT 17 % 5 AS hasil;
+
+SELECT created_at, CASE WHEN created_at % 2 = 0 THEN 'Genap' ELSE 'Ganjil' END AS 'Jenis Bliangan'
+FROM products;
+
+SELECT id,
+       CONCAT(price DIV 1000, 'K') AS 'Price In K',
+       CASE
+           WHEN (price DIV 1000) % 2 = 0 THEN 'Genap'
+           ELSE 'Ganjil'
+           END                     AS 'jenis_bilangan'
+FROM products;
+
+SELECT products.id, SIN(products.price), COS(products.price), TAN(products.price)
+FROM products;
+
+SELECT id, name, price
+FROM products
+WHERE price DIV 1000 > 15;
+
