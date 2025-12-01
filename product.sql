@@ -273,7 +273,7 @@ FROM products;
 
 SELECT ROUND(AVG(price)) AS 'harga_rata_rata'
 FROM products;
-
+0
 SELECT COUNT(id) AS 'total_products'
 FROM products
 GROUP BY category;
@@ -283,3 +283,23 @@ SELECT category,
 FROM products
 GROUP BY category
 HAVING total > 1;
+
+SELECT category, SUM(price) AS 'total_price'
+FROM products
+GROUP BY category
+HAVING total_price > 10000;
+
+ALTER TABLE products
+    ADD CONSTRAINT price_check CHECK ( price >= 500 AND  price <= 50000);
+
+ALTER TABLE products
+    DROP CONSTRAINT price_check;
+
+SHOW CREATE TABLE products;
+
+INSERT INTO products(id, name, price, quantity)
+VALUES ('P016', 'Permen', 500, 100);
+
+UPDATE products
+SET price = 1000000
+WHERE id = 'P016';
