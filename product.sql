@@ -1,59 +1,3 @@
-SHOW TABLES;
-
-USE belajar_mysql;
-
-CREATE TABLE barang
-(
-    id     INT,
-    nama   VARCHAR(100),
-    harga  INT,
-    jumlah INT
-) ENGINE = INNODB;
-
-DESCRIBE barang;
-
-SHOW CREATE TABLE barang;
-
-ALTER TABLE barang
-    ADD COLUMN deskripsi TEXT,
-    RENAME COLUMN nama TO nama_baru,
-    MODIFY ID VARCHAR(50) FIRST,
-    MODIFY jumlah INT after harga;
-
-ALTER TABLE barang
-    ADD COLUMN salah TEXT;
-
-ALTER TABLE barang
-    DROP COLUMN salah;
-
-ALTER TABLE barang
-    MODIFY COLUMN nama_baru VARCHAR(200) AFTER deskripsi;
-
-ALTER TABLE barang
-    MODIFY COLUMN id INT NOT NULL;
-
-ALTER TABLE barang
-    MODIFY COLUMN nama VARCHAR(200) NOT NULL;
-
-ALTER TABLE barang
-    MODIFY jumlah INT NOT NULL DEFAULT 0;
-
-ALTER TABLE barang
-    MODIFY HARGA INT NOT NULL DEFAULT 0;
-
-ALTER TABLE BARANG
-    ADD waktu_dibuat TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
-
-INSERT INTO barang (id, nama)
-VALUES (1, 'Apel');
-
-SELECT *
-FROM barang;
-
-TRUNCATE barang;
-
-DROP TABLE barang;
-
 CREATE TABLE products
 (
     id          VARCHAR(10)  NOT NULL,
@@ -73,7 +17,6 @@ VALUES ('P002', 'Mie Ayam Bakso', 'Mie Ayam Original + Bakso', 20000, 100);
 INSERT INTO products(id, name, price, quantity)
 VALUES ('P005', 'Mie Ayam Yamin', 30000, 100);
 
-
 SELECT id,
        name,
        price,
@@ -86,7 +29,6 @@ ALTER TABLE products
 DELETE
 FROM products
 WHERE id IN ('P003', 'P004', 'P005');
-
 
 SELECT *
 FROM products
@@ -116,7 +58,6 @@ UPDATE products
 SET category = 'Makanan'
 WHERE id = 'P001';
 
-
 UPDATE products
 SET description = 'Kerupuk Gurih'
 WHERE id = 'P0010';
@@ -124,8 +65,6 @@ WHERE id = 'P0010';
 UPDATE products
 SET price = price + 5000
 WHERE id = 'P004';
-
-
 
 DELETE
 FROM products
@@ -157,8 +96,6 @@ VALUES ('P0006', 'Makanan', 'Bakso Rusuk', 25000, 200),
        ('P0014', 'Makanan', 'Bakso Telor', 20000, 150),
        ('P0015', 'Makanan', 'Bakso Jando', 25000, 300);
 
-
-
 SELECT *
 FROM products
 WHERE quantity > 100;
@@ -171,11 +108,9 @@ SELECT *
 FROM products
 WHERE category != 'Makanan';
 
-
 SELECT *
 FROM products
 WHERE category <> 'Minuman';
-
 
 SELECT *
 FROM products
