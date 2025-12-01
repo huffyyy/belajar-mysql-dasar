@@ -227,5 +227,13 @@ WHERE price DIV 1000 > 15;
 SELECT id, LOWER(name) AS 'name_lower'
 FROM products;
 
-SELECT id, name, LENGTH(name) AS 'name_lenght'
+SELECT id, name, LENGTH(name) AS 'name_length'
 FROM products;
+
+SELECT id,
+       EXTRACT(YEAR FROM created_at) AS 'year',
+       EXTRACT(MONTH FROM created_at) AS 'month'
+    FROM products;
+
+SELECT id, YEAR(created_at), MONTH(created_at)
+    FROM products;
