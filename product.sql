@@ -255,3 +255,15 @@ FROM products;
 
 SELECT id, name, IFNULL(description, 'kosong')
 FROM products;
+
+SELECT COUNT(id) AS 'total_products' FROM products;
+
+SELECT MAX(price) AS 'harga_termahal' FROM products;
+
+SELECT MIN(price) AS 'harga_termurah' FROM products;
+
+SELECT AVG(price) AS 'harga_rata_rata' FROM products;
+
+SELECT ROUND(AVG(price), 2) AS 'harga_rata_rata' FROM products;
+
+SELECT ROUND(AVG(price)) AS 'harga_rata_rata' FROM products;
