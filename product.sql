@@ -231,9 +231,27 @@ SELECT id, name, LENGTH(name) AS 'name_length'
 FROM products;
 
 SELECT id,
-       EXTRACT(YEAR FROM created_at) AS 'year',
+       EXTRACT(YEAR FROM created_at)  AS 'year',
        EXTRACT(MONTH FROM created_at) AS 'month'
-    FROM products;
+FROM products;
 
 SELECT id, YEAR(created_at), MONTH(created_at)
-    FROM products;
+FROM products;
+
+SELECT id,
+       CASE category
+           WHEN 'makanan' THEN 'enak'
+           WHEN 'minuman' THEN 'segar'
+           ELSE 'Apa itu'
+           END AS 'category'
+FROM products;
+
+SELECT id,
+       price,
+       IF(price <= 15000, 'Murah',
+          IF(price <= 20000, 'Mahal', 'Mahal banget')
+       ) AS 'mahal?'
+FROM products;
+
+SELECT id, name, IFNULL(description, 'kosong')
+FROM products;
