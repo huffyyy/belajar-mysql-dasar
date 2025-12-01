@@ -87,7 +87,6 @@ DELETE
 FROM products
 WHERE id IN ('P003', 'P004', 'P005');
 
-SET SQL_SAFE_UPDATES = 1;
 
 SELECT *
 FROM products
@@ -119,12 +118,13 @@ WHERE id = 'P001';
 
 
 UPDATE products
-SET description = 'Mie Ayam Original Yamin'
-WHERE id = 'P005';
+SET description = 'Kerupuk Gurih'
+WHERE id = 'P0010';
 
 UPDATE products
 SET price = price + 5000
 WHERE id = 'P004';
+
 
 
 DELETE
@@ -156,6 +156,8 @@ VALUES ('P0006', 'Makanan', 'Bakso Rusuk', 25000, 200),
        ('P0013', 'Makanan', 'Mie Ayam Jamur', 20000, 50),
        ('P0014', 'Makanan', 'Bakso Telor', 20000, 150),
        ('P0015', 'Makanan', 'Bakso Jando', 25000, 300);
+
+
 
 SELECT *
 FROM products
@@ -228,5 +230,27 @@ SELECT *
 FROM products
 WHERE category IN ('Makanan', 'Minuman');
 
-SELECT * FROM products
+SELECT *
+FROM products
 WHERE category NOT IN ('Makanan', 'Minuman');
+
+INSERT INTO products (id, name, description, price, quantity)
+VALUES ('P0016', 'IPAD GEN 9TH',
+        'IPAD TERMURAH KATA GADGETIN',
+        3000000, 1);
+
+DELETE
+FROM products
+WHERE name = 'IPAD GEN 9TH';
+
+SELECT *
+FROM products
+ORDER BY id desc;
+
+SELECT *
+FROM products;
+
+SELECT * FROM products ORDER BY id LIMIT 5;
+
+SELECT * FROM products WHERE price > 0 ORDER BY id LIMIT 5, 5;
+
