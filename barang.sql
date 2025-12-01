@@ -56,4 +56,4 @@ TRUNCATE barang;
 
 SHOW tables;
 
-DROP TABLE barang;
+# DROP TABLE barang;

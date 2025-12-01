@@ -15,6 +15,9 @@ VALUES ('Rasasi', 'Hawas');
 INSERT INTO admin (first_name, last_name)
 VALUES ('Adidas', 'Spezial');
 
+INSERT INTO admin (first_name, last_name)
+VALUES ('Hot', 'Wheels');
+
 DELETE
 FROM admin
 WHERE id = 4;
