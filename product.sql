@@ -224,3 +224,8 @@ SELECT id, name, price
 FROM products
 WHERE price DIV 1000 > 15;
 
+SELECT id, LOWER(name) AS 'name_lower'
+FROM products;
+
+SELECT id, name, LENGTH(name) AS 'name_lenght'
+FROM products;
