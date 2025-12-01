@@ -254,3 +254,4 @@ SELECT * FROM products ORDER BY id LIMIT 5;
 
 SELECT * FROM products WHERE price > 0 ORDER BY id LIMIT 5, 5;
 
+SELECT DISTINCT category FROM products ;
