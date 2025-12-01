@@ -273,7 +273,7 @@ FROM products;
 
 SELECT ROUND(AVG(price)) AS 'harga_rata_rata'
 FROM products;
-0
+
 SELECT COUNT(id) AS 'total_products'
 FROM products
 GROUP BY category;
