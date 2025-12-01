@@ -21,7 +21,7 @@ DESCRIBE customers;
 SELECT * FROM customers;
 
 INSERT INTO customers(email, first_name, last_name)
-VALUES ('husnul@gmail.com', 'Husnul', 'FIkri')
+VALUES ('husnul@gmail.com', 'Husnul', 'FIkri');
 
 INSERT INTO customers(email, first_name, last_name)
-VALUES ('Fikri@gmail.com', 'Fikri', 'Husnul')
+VALUES ('Fikri@gmail.com', 'Fikri', 'Husnul');
