@@ -290,7 +290,7 @@ GROUP BY category
 HAVING total_price > 10000;
 
 ALTER TABLE products
-    ADD CONSTRAINT price_check CHECK ( price >= 500 AND  price <= 50000);
+    ADD CONSTRAINT price_check CHECK ( price >= 500 AND price <= 50000);
 
 ALTER TABLE products
     DROP CONSTRAINT price_check;
@@ -303,3 +303,19 @@ VALUES ('P016', 'Permen', 500, 100);
 UPDATE products
 SET price = 1000000
 WHERE id = 'P016';
+
+ALTER TABLE products
+    ADD FULLTEXT product_search (name, description);
+
+SELECT *
+FROM products
+WHERE MATCH(name, description)
+            AGAINST('ayam' IN NATURAL LANGUAGE MODE);
+
+SELECT *
+FROM products
+WHERE MATCH(name, description) AGAINST('+mie -ceker' IN BOOLEAN MODE);
+
+SELECT *
+FROM products
+WHERE MATCH(name, description) AGAINST('bakso' WITH QUERY EXPANSION);
