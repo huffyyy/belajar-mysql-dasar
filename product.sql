@@ -319,3 +319,6 @@ WHERE MATCH(name, description) AGAINST('+mie -ceker' IN BOOLEAN MODE);
 SELECT *
 FROM products
 WHERE MATCH(name, description) AGAINST('bakso' WITH QUERY EXPANSION);
+
+INSERT INTO products(id, name, price, quantity)
+VALUES ('Pxxxx', 'contoh', 30000, 100);
