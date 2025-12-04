@@ -322,3 +322,12 @@ WHERE MATCH(name, description) AGAINST('bakso' WITH QUERY EXPANSION);
 
 INSERT INTO products(id, name, price, quantity)
 VALUES ('Pxxxx', 'contoh', 30000, 100);
+
+ALTER TABLE products
+    DROP COLUMN category,
+    ADD COLUMN id_category VARCHAR(100),
+    ADD CONSTRAINT fk_product_category
+        FOREIGN KEY (id_category) REFERENCES categories (id);
+
+ALTER TABLE products
+    DROP CONSTRAINT fk_product_category;
