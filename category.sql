@@ -3,7 +3,7 @@ use belajar_mysql;
 CREATE TABLE categories
 (
     id   VARCHAR(10) NOT NULL,
-    name VARCHAR(10) NOT NULL,
+    name VARCHAR(10) NOT NULL
 ) ENGINE = InnoDB;
 
 DESCRIBE categories;
@@ -45,4 +45,16 @@ WHERE id IN (
 
 SELECT products.id, products.name, categories.name
 FROM products
-         JOIN categories ON (categories.id = products.id_category)
+         JOIN categories ON (categories.id = products.id_category);
+
+SELECT * FROM categories
+INNER JOIN products ON (products.id_category = categories.id);
+
+SELECT * FROM categories
+LEFT JOIN products ON (products.id_category = categories.id);
+
+SELECT * FROM categories
+RIGHT JOIN products ON (products.id_category = categories.id);
+
+SELECT * FROM categories
+CROSS JOIN products;
