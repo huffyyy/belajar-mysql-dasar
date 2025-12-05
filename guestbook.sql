@@ -43,12 +43,32 @@ FROM (SELECT DISTINCT email
       FROM guestbook) as emails
 GROUP BY email;
 
-SELECT DISTINCT email FROM customers
+SELECT DISTINCT email
+FROM customers
 WHERE email IN (SELECT DISTINCT email FROM guestbook);
 
-SELECT DISTINCT customers.email FROM customers
-INNER JOIN guestbook ON (guestbook.email = customers.email);
+SELECT DISTINCT customers.email
+FROM customers
+         INNER JOIN guestbook ON (guestbook.email = customers.email);
 
-SELECT DISTINCT customers.email, guestbook.email FROM customers
-LEFT JOIN guestbook ON (guestbook.email = customers.email)
+SELECT DISTINCT customers.email, guestbook.email
+FROM customers
+         LEFT JOIN guestbook ON (guestbook.email = customers.email)
 WHERE guestbook.email IS NULL;
+
+START TRANSACTION;
+
+INSERT INTO guestbook (email, title, content)
+VALUES ('contoh1@gmail.com', 'contoh', 'contoh'),
+       ('contoh2@gmail.com', 'contoh', 'contoh'),
+       ('contoh3@gmail.com', 'contoh', 'contoh');
+
+SELECT * FROM guestbook;
+
+COMMIT ;
+
+START TRANSACTION;
+
+DELETE FROM guestbook;
+
+ROLLBACK ;
