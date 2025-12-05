@@ -9,7 +9,10 @@ CREATE TABLE products
 );
 
 INSERT INTO products(id, name, price, quantity)
-VALUES ('P001', 'Mie Ayam', 15000, 100);
+VALUES ('X001', 'X Satu', 10000, 100),
+       ('X002', 'X Dua', 10000, 100),
+       ('X003', 'X Tiga', 10000, 100),
+       ('X004', 'X Tiga', 10000, 100);
 
 INSERT INTO products(id, name, description, price, quantity)
 VALUES ('P002', 'Mie Ayam Bakso', 'Mie Ayam Original + Bakso', 20000, 100);
@@ -55,8 +58,8 @@ SET category = 'Makanan'
 WHERE id IN ('P002', 'P004', 'P005');
 
 UPDATE products
-SET category = 'Makanan'
-WHERE id = 'P001';
+SET price = 1000000
+WHERE id = 'X001';
 
 UPDATE products
 SET description = 'Kerupuk Gurih'
@@ -331,3 +334,12 @@ ALTER TABLE products
 
 ALTER TABLE products
     DROP CONSTRAINT fk_product_category;
+
+SELECT *
+FROM products
+WHERE price > (SELECT AVG(price) FROM products);
+
+SElECT MAX(price)
+FROM (SELECT price
+      FROM categories
+               INNER JOIN products ON (products.id_category = categories.id)) AS cp;
