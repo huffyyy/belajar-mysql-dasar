@@ -42,3 +42,19 @@ SELECT *
 FROM products
 WHERE id = 'P001' FOR
 UPDATE;
+
+#LOCK TABLE READ
+
+SELECT * FROM products;
+
+UPDATE products
+SET quantity = 100
+
+#LOCK TABLE WRITE
+
+SELECT * FROM products;
+
+#LOCK INSTANCE
+
+ALTER TABLE products
+ADD COLUMN sample VARCHAR(100);

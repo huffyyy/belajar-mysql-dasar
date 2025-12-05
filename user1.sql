@@ -38,3 +38,29 @@ SELECT *
 FROM products
 WHERE id = 'P002' FOR
 UPDATE;
+
+#LOCK TABLE READ
+
+LOCK TABLES products READ ;
+
+UPDATE products
+SET quantity = 100
+WHERE id = 'P001';
+
+UNLOCK TABLES ;
+
+#LOCK TABLE WRITE
+
+LOCK TABLES products WRITE ;
+
+UPDATE products
+SET quantity = 100
+WHERE id = 'P001';
+
+SELECT * FROM products;
+
+#LOCK INSTANCE
+
+LOCK INSTANCE FOR BACKUP;
+
+UNLOCK INSTANCE;
