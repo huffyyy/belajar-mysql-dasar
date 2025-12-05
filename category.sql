@@ -18,7 +18,7 @@ VALUES ('C001', 'Makanan'),
 
 UPDATE products
 SET id_category = 'C001'
-WHERE id IN ('P001', 'P002', 'P003', 'P004', 'P004', 'P005', 'P006', 'P013', 'P014', 'P015');
+WHERE id IN ('P001', 'P002', 'P003', 'P004', 'P005', 'P006', 'P013', 'P014', 'P015');
 
 UPDATE products
 SET id_category = 'C002'
@@ -26,7 +26,22 @@ WHERE id IN ('P007', 'P008', 'P009');
 
 UPDATE products
 SET id_category = 'C003'
-WHERE id IN ('P010', 'P011', 'P012', 'P016 ');
+WHERE id IN ('P010', 'P011', 'P012', 'P016');
+
+# case
+UPDATE products
+SET id_category =
+        CASE
+            WHEN id IN ('P001', 'P002', 'P003', 'P004', 'P005', 'P006', 'P013', 'P014', 'P015') THEN 'C001'
+            WHEN id IN ('P007', 'P008', 'P009') THEN 'C002'
+            WHEN id IN ('P010', 'P011', 'P012', 'P016') THEN 'C003'
+            ELSE id_category
+            END
+WHERE id IN (
+             'P001', 'P002', 'P003', 'P004', 'P005', 'P006', 'P013', 'P014', 'P015',
+             'P007', 'P008', 'P009',
+             'P010', 'P011', 'P012', 'P016'
+    );
 
 SELECT products.id, products.name, categories.name
 FROM products
